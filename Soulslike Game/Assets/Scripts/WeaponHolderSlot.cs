@@ -12,13 +12,29 @@ namespace HR
 
         public GameObject currentWeaponModel;
 
+        public void UnloadWeapon()
+        {
+            if ( currentWeaponModel != null)
+            {
+                currentWeaponModel.SetActive(false);
+            }
+        }
+
+        public void UnloadWeaponAndDestroy()
+        {
+            if (currentWeaponModel != null)
+            {
+                Destroy(currentWeaponModel);
+            }
+        }
+
         public void LoadWeaponModel(WeaponItem weaponItem)
         {
-            //UnloadWeaponAndDestroy
+            UnloadWeaponAndDestroy();
 
             if(weaponItem == null)
             {
-                //Unload Weapon
+                UnloadWeapon();
                 return;
             }
 
